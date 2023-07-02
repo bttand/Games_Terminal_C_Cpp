@@ -3,8 +3,9 @@
 #include<string.h>
 #include<time.h>
 #include<ctype.h>
+#include<locale.h>
 
-char listaPalavras[4][10] = {"aluguel", "cadeira", "moto", "destino"};
+char listaPalavras[8][10] = {"alugar", "cadeira", "moto", "destino", "gato", "louco", "muito", "caneta"};
 char palavra[10];
 char palavraEscondida[10];
 
@@ -23,6 +24,7 @@ void sortearPalavra() {
 
 void boneco(int erro) {
     char x1 = ' ', x2 = ' ', x3 = ' ', x4 = ' ', x5 = ' ', x6 = ' ';
+
     if (erro >= 1) {
         x1 = 'O';
     }
@@ -51,8 +53,8 @@ void boneco(int erro) {
 
 void regras() {
     system("cls");
-    printf("Uma palavra aleatoria sera selecionada\n\n");
-    printf("Voce devera descobrir qual e a palavra escolhendo uma letra por vez\n\n");
+    printf("Uma palavra aleatória será selecionada\n\n");
+    printf("Você deverá descobrir qual é a palavra escolhendo uma letra por vez\n\n");
     printf("Caso erre 6 vezes o jogo se encerra\n\n");
     system("pause");
 }
@@ -93,7 +95,7 @@ void novoJogo() {
             fflush(stdin);
             if (isdigit(letra) > 0 or ispunct(letra) > 0) {
                 system("cls");
-                printf("Entrada invalida!\n\n");
+                printf("Entrada inválida!\n\n");
                 system("pause");
             } else {
                 valido = true;
@@ -101,7 +103,7 @@ void novoJogo() {
                     if (letra == erros[i]) {
                         valido = false;
                         system("cls");
-                        printf("Ja na lista de erros!!\n\n");
+                        printf("Já na lista de erros!!\n\n");
                         system("pause");
                         break;
                     }
@@ -128,8 +130,8 @@ void novoJogo() {
     }
     if (vitoria) {
         system("cls");
-        printf("Palavra econtrada: %s\n\n", palavra);
-        printf("Parabens!!\n\n");
+        printf("Palavra encontrada: %s\n\n", palavra);
+        printf("Parabéns!!\n\n");
         system("pause");
     } else if (forca) {
         system("cls");
@@ -144,6 +146,7 @@ int main() {
     int op;
     bool sair;
 
+    setlocale(LC_ALL, "Portuguese");
     while (!sair) {
         sortearPalavra();
         menu();
@@ -161,18 +164,9 @@ int main() {
             break;
         default:
             system("cls");
-            printf("Entrada invalida\n\n");
+            printf("Entrada inválida\n\n");
             system("pause");
             break;
         }
     }    
 }
-
-
-
-
-
-
-
-
-

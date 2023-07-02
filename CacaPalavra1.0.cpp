@@ -7,11 +7,12 @@
 char tabela[16][16];
 char palavras[6][10];
 int acertos = 6;
-bool palavra1 = false, palavra2 = false, palavra3 = false, palavra4 = false, palavra5 = false, palavra6 = false;
+bool palavra1, palavra2, palavra3, palavra4, palavra5, palavra6;
 
 void criarTabela(){
-	srand(time(NULL));
 	int i, j;
+
+	srand(time(NULL));
     for(i=0; i<16; i++){
     	for(j=0; j<16; j++){
 	        tabela[i][j]= 'A' + (char)(rand()%26);
@@ -151,32 +152,32 @@ void adicionarPalavras(int i){
 }
 
 bool tabelaCor(char co1[10], char co2[10]){
-	if((strcmp(co1, "d5") == 0) and (strcmp(co2, "d12") == 0) and palavra1 == false){
+	if((strcmp(co1, "d5") == 0) and (strcmp(co2, "d12") == 0) and !palavra1){
 		strcpy(palavras[acertos - 1], "vermelho");
 		acertos--;
 		palavra1 = true;
 	}
-	else if((strcmp(co1, "m7") == 0) and (strcmp(co2, "p7") == 0) and palavra2 == false){
+	else if((strcmp(co1, "m7") == 0) and (strcmp(co2, "p7") == 0) and !palavra2){
 		strcpy(palavras[acertos - 1], "azul");
 		acertos--;
 		palavra2 = true;
 	}
-	else if((strcmp(co1, "i9") == 0) and (strcmp(co2, "o15") == 0) and palavra3 == false){
+	else if((strcmp(co1, "i9") == 0) and (strcmp(co2, "o15") == 0) and !palavra3){
 		strcpy(palavras[acertos - 1], "amarelo");
 		acertos--;
 		palavra3 = true;
 	}
-	else if((strcmp(co1, "d5") == 0) and (strcmp(co2, "h5") == 0) and palavra4 == false){
+	else if((strcmp(co1, "d5") == 0) and (strcmp(co2, "h5") == 0) and !palavra4){
 		strcpy(palavras[acertos - 1], "verde");
 		acertos--;
 		palavra4 = true;
 	}
-	else if((strcmp(co1, "p1") == 0) and (strcmp(co2, "p5") == 0) and palavra5 == false){
+	else if((strcmp(co1, "p1") == 0) and (strcmp(co2, "p5") == 0) and !palavra5){
 		strcpy(palavras[acertos - 1], "preto");
 		acertos--;
 		palavra5 = true;
 	}
-	else if((strcmp(co1, "b15") == 0) and (strcmp(co2, "e15") == 0) and palavra6 == false){
+	else if((strcmp(co1, "b15") == 0) and (strcmp(co2, "e15") == 0) and !palavra6){
 		strcpy(palavras[acertos - 1], "roxo");
 		acertos--;
 		palavra6 = true;
@@ -189,33 +190,32 @@ bool tabelaCor(char co1[10], char co2[10]){
 }
 
 bool tabelaInstrumento(char co1[10], char co2[10]){
-	bool vitoria = false;
-	if((strcmp(co1, "d14") == 0) and (strcmp(co2, "j14") == 0) and palavra1 == false){
+	if((strcmp(co1, "d14") == 0) and (strcmp(co2, "j14") == 0) and !palavra1){
 		strcpy(palavras[acertos - 1], "violino");
 		acertos--;
 		palavra1 = true;
 	}
-	else if((strcmp(co1, "o4") == 0) and (strcmp(co2, "o8") == 0) and palavra2 == false){
+	else if((strcmp(co1, "o4") == 0) and (strcmp(co2, "o8") == 0) and !palavra2){
 		strcpy(palavras[acertos - 1], "harpa");
 		acertos--;
 		palavra2 = true;
 	}
-	else if((strcmp(co1, "p2") == 0) and (strcmp(co2, "p9") == 0) and palavra3 == false){
+	else if((strcmp(co1, "p2") == 0) and (strcmp(co2, "p9") == 0) and !palavra3){
 		strcpy(palavras[acertos - 1], "guitarra");
 		acertos--;
 		palavra3 = true;
 	}
-	else if((strcmp(co1, "e1") == 0) and (strcmp(co2, "i1") == 0) and palavra4 == false){
+	else if((strcmp(co1, "e1") == 0) and (strcmp(co2, "i1") == 0) and !palavra4){
 		strcpy(palavras[acertos - 1], "gaita");
 		acertos--;
 		palavra4 = true;
 	}
-	else if((strcmp(co1, "e6") == 0) and (strcmp(co2, "j11") == 0) and palavra5 == false){
+	else if((strcmp(co1, "e6") == 0) and (strcmp(co2, "j11") == 0) and !palavra5){
 		strcpy(palavras[acertos - 1], "flauta");
 		acertos--;
 		palavra5 = true;
 	}
-	else if((strcmp(co1, "g6") == 0) and (strcmp(co2, "g10") == 0) and palavra6 == false){
+	else if((strcmp(co1, "g6") == 0) and (strcmp(co2, "g10") == 0) and !palavra6){
 		strcpy(palavras[acertos - 1], "piano");
 		acertos--;
 		palavra6 = true;
@@ -228,33 +228,32 @@ bool tabelaInstrumento(char co1[10], char co2[10]){
 }
 
 bool tabelaAnimal(char co1[10], char co2[10]){
-	bool vitoria = false;
-	if((strcmp(co1, "j2") == 0) and (strcmp(co2, "j7") == 0) and palavra1 == false){
+	if((strcmp(co1, "j2") == 0) and (strcmp(co2, "j7") == 0) and !palavra1){
 		strcpy(palavras[acertos - 1], "cavalo");
 		acertos--;
 		palavra1 = true;
 	}
-	else if((strcmp(co1, "p13") == 0) and (strcmp(co2, "p15") == 0) and palavra2 == false){
+	else if((strcmp(co1, "p13") == 0) and (strcmp(co2, "p15") == 0) and !palavra2){
 		strcpy(palavras[acertos - 1], "boi");
 		acertos--;
 		palavra2 = true;
 	}
-	else if((strcmp(co1, "b1") == 0) and (strcmp(co2, "g6") == 0) and palavra3 == false){
+	else if((strcmp(co1, "b1") == 0) and (strcmp(co2, "g6") == 0) and !palavra3){
 		strcpy(palavras[acertos - 1], "macaco");
 		acertos--;
 		palavra3 = true;
 	}
-	else if((strcmp(co1, "k5") == 0) and (strcmp(co2, "p10") == 0) and palavra4 == false){
+	else if((strcmp(co1, "k5") == 0) and (strcmp(co2, "p10") == 0) and !palavra4){
 		strcpy(palavras[acertos - 1], "jacare");
 		acertos--;
 		palavra4 = true;
 	}
-	else if((strcmp(co1, "d13") == 0) and (strcmp(co2, "g13") == 0) and palavra5 == false){
+	else if((strcmp(co1, "d13") == 0) and (strcmp(co2, "g13") == 0) and !palavra5){
 		strcpy(palavras[acertos - 1], "lobo");
 		acertos--;
 		palavra5 = true;
 	}
-	else if((strcmp(co1, "f11") == 0) and (strcmp(co2, "f15") == 0) and palavra6 == false){
+	else if((strcmp(co1, "f11") == 0) and (strcmp(co2, "f15") == 0) and !palavra6){
 		strcpy(palavras[acertos - 1], "zebra");
 		acertos--;
 		palavra6 = true;
@@ -293,8 +292,9 @@ void regras(){
 }
 
 int main(){
-	bool sair = false; 
-	while(sair == false){
+	bool sair; 
+
+	while(!sair){
 		int i, j, op, sorteio;
 		char co1[10] = " ", co2[10] = " ";
 		bool vitoria = false;
@@ -316,7 +316,7 @@ int main(){
 				srand(time(NULL));
 				sorteio = rand() % 3;	
 				adicionarPalavras(sorteio);
-				while(vitoria == false){
+				while(!vitoria){
 					if(sorteio == 0){
 						printf("TEMA: CORES\n");
 					}else if(sorteio == 1){
@@ -366,7 +366,7 @@ int main(){
 				fflush(stdin);
 				break;
 		}
-		if(vitoria == true){
+		if(vitoria){
 			printf("Parabéns, você achou todas as palavras!!\n\n");
 			printf("Palavras encontradas: ");
 			printf("%s %s %s %s %s %s\n\n", (palavras[5]), (palavras[4]), (palavras[3]), (palavras[2]), (palavras[1]), (palavras[0]));

@@ -18,6 +18,7 @@ void regras(){
 
 void testeVitoria(int i){
 	char x = ' ';
+
 	if(i == 1){
 		x = 'O';
 	}else{
@@ -48,19 +49,19 @@ void velha(){
 	printf("  %c | %c | %c\n", v[3], v[4], v[5]);
     printf(" --- --- ---  \n");
     printf("  %c | %c | %c\n", v[0], v[1], v[2]);
-
 }
 	
 void jogada(char jogador[20], int i){
 	int jog;
 	bool valido = false;
 	char x = ' ';
+
 	if(i==1){
 		x = 'O';
 	}else{
 		x = 'X';
 	}
-	while(valido == false){
+	while(!valido){
 		printf("\n%s - Escolha de 1 a 9 para decidir onde jogar: ", jogador);
 		scanf("%d", &jog);
 		fflush(stdin);
@@ -70,7 +71,7 @@ void jogada(char jogador[20], int i){
 				valido = true;
 			}
 		}
-		if(valido == false){
+		if(!valido){
 			system("cls");
 			velha();
 			printf("\nJogada Inválida\n");
@@ -100,8 +101,9 @@ int main(){
 	int escolha = 0, qntVitA = 0, qntVitB = 0, emp = 0, inverte = 2;
 	bool sair = false, novamente = true;
 	char jogador1[20], jogador2[20];
+
 	setlocale(LC_ALL, "Portuguese");
-    while(sair == false){
+    while(!sair){
     	system("cls");
     	menu();
 		scanf("%d", &escolha);
@@ -121,7 +123,7 @@ int main(){
 				fflush(stdin);
 				novamente = true;
 
-				while(novamente == true){		
+				while(novamente){		
 				    int empate = 0;
 				    bool vitA = false, vitB = false, valido = false;
 				    char jogarNovamente = ' ';
@@ -133,7 +135,7 @@ int main(){
 							system("cls");
 					    	velha();
 					    	testeVitoria(1);
-					    	if(vitoria == true){
+					    	if(vitoria){
 					    		vitA = true;
 					    		break;
 							}
@@ -144,7 +146,7 @@ int main(){
 							system("cls");
 							velha();
 					 		testeVitoria(0);
-					 		if(vitoria == true){
+					 		if(vitoria){
 					    		vitB = true;
 							}
 						}else{
@@ -153,7 +155,7 @@ int main(){
 							system("cls");
 							velha();
 					 		testeVitoria(0);
-					 		if(vitoria == true){
+					 		if(vitoria){
 					    		vitB = true;
 					    		break;
 							}
@@ -164,20 +166,20 @@ int main(){
 							system("cls");
 					    	velha();
 					    	testeVitoria(1);
-					    	if(vitoria == true){
+					    	if(vitoria){
 					    		vitA = true;
 							}						
 						}
 				    }
-					if(vitA == true){
+					if(vitA){
 				        qntVitA++;
-				    }else if (vitB == true){
+				    }else if (vitB){
 				        qntVitB++;
 				    }else{
 				        emp++;
 				    }
 				    valido = false;
-				    while(valido == false){
+				    while(!valido){
 				    	printf("\n%s: %d\n", jogador1, qntVitA);
 				    	printf("%s: %d\n", jogador2, qntVitB);
 				    	printf("Empates: %d\n", emp);
